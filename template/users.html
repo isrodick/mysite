@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %} List of users {% endblock %}
+
+{% block content %}
+	{% for users in users_list %}
+		<p> Login:           {{ users }}.Login </p>
+		<p> Full name:       {{ users }}."Full name" </p>
+		<p> Date birthday:   {{ users }}."Date birthday" </p>
+		<br>
+		<br>
+	{% endfor %}
+{% endblock %}
