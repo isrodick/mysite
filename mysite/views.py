@@ -27,11 +27,11 @@ def hours_ahead(request, offset):
 
 
 def users(request):
-	user1 = {'Login': 'Sid', 'Full name': 'Родион', 'Date birthday': "04-07-1993"}
-	user2 = {'Login': 'dark', 'Full name': 'Антон', 'Date birthday': "10-10-1993"}
-	user3 = {'Login': 'Enzo', 'Full name': 'Глеб', 'Date birthday': "30-03-1993"}
-	user4 = {'Login': 'Storm', 'Full name': 'Сергей', 'Date birthday': "13-05-1992"}
-	user5 = {'Login': 'Avenger', 'Full name': 'Павлуша', 'Date birthday': "04-07-1993"}
+	user1 = {'Login': 'Sid', 'Full name': 'Родион', 'Date_birthday': "04-07-1993"}
+	user2 = {'Login': 'dark', 'Full name': 'Антон', 'Date_birthday': "10-10-1993"}
+	user3 = {'Login': 'Enzo', 'Full name': 'Глеб', 'Date_birthday': "30-03-1993"}
+	user4 = {'Login': 'Storm', 'Full name': 'Сергей', 'Date_birthday': "13-05-1992"}
+	user5 = {'Login': 'Avenger', 'Full name': 'Павлуша', 'Date_birthday': "04-07-1993"}
 	users = (user1, user2, user3, user4, user5)
 
 	return render_to_response('users.html', {'users': users})
