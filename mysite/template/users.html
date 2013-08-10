@@ -3,11 +3,15 @@
 {% block title %} List of users {% endblock %}
 
 {% block content %}
-	{% for user in users %}
-		<p> Login:           {{ user.Login }} </p>
-		<p> Full name:       {{ user.Full_name }} </p>
-		<p> Date birthday:   {{ user.Date_birthday }} </p>
-		<br>
-		<br>
-	{% endfor %}
+	<table border = 3>
+		<caption> Data of users </caption>
+		<tr> <td> <th> Full name </th> <th> Date birthday </th> </tr>
+		{% for user in users %}
+			<tr>
+				<td> {{ user.Login }} </td>
+				<td> {{ user.Full_name }} </td>
+				<td> {{ user.Date_birthday }} </td>
+			</tr>
+		{% endfor %}
+	</table>
 {% endblock %}
