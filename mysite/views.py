@@ -2,19 +2,27 @@
 
 from django.http import HttpResponse, Http404
 from django.shortcuts import render_to_response
+#from django.template import Context
 import datetime
+
+def render_with_tamplate(template):
+	def decorator(func):
+		def wrapper(*args):
+			return render_to_response( template, func(*args) )
+		return wrapper
+	return decorator
 
 
 def hello(request):
 	return HttpResponse("Sid корпарейшен")
 
-
+@render_with_tamplate('current_datetime.html')
 def current_datetime(request):
 	now = datetime.datetime.now()
 
-	return render_to_response('current_datetime.html', {'current_date': now})
+	return {'current_date': now}
 
-
+@render_with_tamplate('hours_ahead.html')
 def hours_ahead(request, offset):
 	try:
 		offset = int(offset)
@@ -23,9 +31,9 @@ def hours_ahead(request, offset):
 
 	dt = datetime.datetime.now() + datetime.timedelta(hours = offset)
 
-	return render_to_response('hours_ahead.html', {'hour_offset': offset, 'next_time': dt})
+	return {'hour_offset': offset, 'next_time': dt}
 
-
+@render_with_tamplate('users.html')
 def users(request):
 	user1 = {'Login': 'Sid', 'Full_name': 'Родион', 'Date_birthday': "04-07-1993"}
 	user2 = {'Login': 'dark', 'Full_name': 'Антон', 'Date_birthday': "10-10-1993"}
@@ -34,4 +42,4 @@ def users(request):
 	user5 = {'Login': 'Avenger', 'Full_name': 'Павлуша', 'Date_birthday': "04-07-1993"}
 	users = (user1, user2, user3, user4, user5)
 
-	return render_to_response('users.html', {'users': users})
+	return {'users': users}
