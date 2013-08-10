@@ -1,5 +1,7 @@
 # Django settings for mysite project.
 
+import os.path
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -107,7 +109,10 @@ ROOT_URLCONF = 'mysite.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
-TEMPLATE_DIRS = ('/home/rodick/Study/Django/mysite/template/',)
+TEMPLATE_DIRS = (
+    #'/home/rodick/Study/Django/mysite/template/',
+    os.path.join(os.path.dirname(__file__), 'template').replace('\\','/'),
+    )
 
 INSTALLED_APPS = (
     'django.contrib.auth',
