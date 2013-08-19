@@ -2,6 +2,7 @@
 
 from django.http import HttpResponse, Http404
 from django.shortcuts import render_to_response
+from users.models import User
 #from django.template import Context
 import datetime
 
@@ -43,3 +44,23 @@ def users(request):
 	users = (user1, user2, user3, user4, user5)
 
 	return {'users': users}
+
+def users_fill(request):
+	user1 = User(login = "Sid", full_name = "Родион", date_birthday = "1993-07-04")
+	user1.save()
+	user2 = User(login = "dark", full_name = "Антон", date_birthday = "1993-10-10")
+	user2.save()
+	user3 = User(login = "Enzo", full_name = "Глеб", date_birthday = "1993-03-30")
+	user3.save()
+	user4 = User(login = "Storm", full_name = "Сергей", date_birthday = "1992-05-13")
+	user4.save()
+	user5 = User(login = "Avenger", full_name = "Павлуша", date_birthday = "1993-07-04")
+	user5.save()
+
+	return HttpResponse("Users filled")
+
+@render_with_tamplate('users_model.html')
+def model_of_users(request):
+	users = User.objects.all()
+
+	retrun {'users': users}
