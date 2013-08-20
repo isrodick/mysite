@@ -9,5 +9,5 @@ urlpatterns = patterns('',
     ('^users/$', users),
     ('^users/fill/$', users_fill),
     #('^users/model/&', model_of_users)
-    ('^users/model/$', model_of_users),
+    ('^users/model/$', model_of_users)
 )
