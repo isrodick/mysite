@@ -61,6 +61,11 @@ def users_fill(request):
 
 @render_with_tamplate('users_model.html')
 def model_of_users(request):
-	users = User.objects.all()
+	users1 = User.objects.get(id = 1)
+	users2 = User.objects.get(id = 2)
+	users3 = User.objects.get(id = 3)
+	users4 = User.objects.get(id = 4)
+	users5 = User.objects.get(id = 5)
 
-	retrun {'users': users}
+	return {'users1': users1, 'users2': users2, 
+	'users3': users3, 'users4': users4, 'users5': users5}
