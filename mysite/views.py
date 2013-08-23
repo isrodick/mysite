@@ -61,15 +61,11 @@ def users_fill(request):
 
 @render_with_tamplate('users.html')
 def model_of_users(request):
-	#users1 = User.objects.get(id = 1)
-	#users2 = User.objects.get(id = 2)
-	#users3 = User.objects.get(id = 3)
-	#users4 = User.objects.get(id = 4)
-	#users5 = User.objects.get(id = 5)
+	users_filter = request.GET
 
-	#return {'users1': users1, 'users2': users2, 
-	#'users3': users3, 'users4': users4, 'users5': users5}
-
-	users = User.objects.all()
+	if(len(users_filter) != 0):
+		users = User.objects.filter(full_name = users_filter['name'])
+	else:
+		users = User.objects.all()
 
 	return {'users': users}
