@@ -63,7 +63,7 @@ def users_fill(request):
 def model_of_users(request):
 	users_filter = request.GET
 
-	if(len(users_filter) != 0):
+	if( len(users_filter) and users_filter.has_key('name') ):
 		users = User.objects.filter(full_name = users_filter['name'])
 	else:
 		users = User.objects.all()
