@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %} List of users {% endblock %}
+
+{% block content %}
+table(border = 3)
+	caption Data of users
+	tr
+		td
+		th Full name
+		th Date birthday
+	{% for user in users %}
+	tr
+		td {{ user.login }}
+		td {{ user.full_name }}
+		td {{ user.date_birthday }}
+	{% endfor %}
+{% endblock %}
