@@ -114,7 +114,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 TEMPLATE_DIRS = (
     #'/home/rodick/Study/Django/mysite/template/',
-    os.path.join(os.path.dirname(__file__), 'template').replace('\\','/'),
+    os.path.join(os.path.dirname(__file__), '../template').replace('\\','/'),
     )
 
 INSTALLED_APPS = (
