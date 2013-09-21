@@ -11,3 +11,7 @@ urlpatterns = patterns('mysite.views',
     ('^users/fill/$', 'users_fill'),
     ('^users/model/$', 'model_of_users')
 )
+
+urlpatterns += patterns('rest_api.views',
+	('^api/users/$', 'model_of_users')
+)
