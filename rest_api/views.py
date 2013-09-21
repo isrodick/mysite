@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 
-#from django.http import HttpResponse, Http404
 from django.shortcuts import render_to_response
 from users.models import User
-#from django.template import Context
-#import datetime
 
 def render_with_tamplate(template):
 	def decorator(func):
@@ -19,7 +16,7 @@ def model_of_users(request):
 	filter_value = 'name'
 
 	if( len(users_filter) and filter_value in users_filter ):
-		users = User.objects.filter(full_name = users_filter['name'])
+		users = User.objects.filter(full_name = users_filter[filter_value])
 	else:
 		users = User.objects.all()
 
