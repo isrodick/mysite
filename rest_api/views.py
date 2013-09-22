@@ -1,23 +1,16 @@
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import render_to_response
+from django.http import HttpResponse
+from django.core import serializers
 from users.models import User
-
-def render_with_tamplate(template):
-	def decorator(func):
-		def wrapper(*args):
-			return render_to_response( template, func(*args) )
-		return wrapper
-	return decorator
-@render_with_tamplate('users.html')
+import json
 
 def model_of_users(request):
 	users_filter = request.GET
 	filter_value = 'name'
 
-	if( len(users_filter) and filter_value in users_filter ):
-		users = User.objects.filter(full_name = users_filter[filter_value])
-	else:
-		users = User.objects.all()
+	users = User.objects.all()
+	j_users = serializers.serialize("json" ,users)
 
-	return {'users': users}
+	return HttpResponse(j_users, mimetype = "application/json")
