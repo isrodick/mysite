@@ -11,6 +11,6 @@ def model_of_users(request):
 	filter_value = 'name'
 
 	users = User.objects.all()
-	j_users = serializers.serialize("json" ,users)
+	j_users = serializers.serialize("json" ,  users)
 
 	return HttpResponse(j_users, mimetype = "application/json")

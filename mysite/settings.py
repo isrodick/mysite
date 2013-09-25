@@ -126,6 +126,7 @@ INSTALLED_APPS = (
     #'django.contrib.staticfiles',
     
     'users',
+    'rest_framework',
 )
 
 # A sample logging configuration. The only tangible logging
