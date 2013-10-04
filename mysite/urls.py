@@ -11,7 +11,7 @@ urlpatterns = patterns('mysite.views',
     ('^hello/$', 'hello'),
     ('^time/$', 'current_datetime'),
     (r'^time/plus/(\d{1,2})/$', 'hours_ahead'),
-    ('^users/$', 'users'),
+    #('^users/$', 'users'),
     ('^users/fill/$', 'users_fill'),
     ('^users/model/$', 'model_of_users'),
 )
@@ -23,6 +23,8 @@ urlpatterns += patterns('',
 urlpatterns += patterns('',
 	(r'^', include(router.urls))
 )
+
+#urlpatterns = router.urls
 
 urlpatterns += patterns('',
 	url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
