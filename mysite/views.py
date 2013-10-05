@@ -34,16 +34,18 @@ def hours_ahead(request, offset):
 
 	return {'hour_offset': offset, 'next_time': dt}
 
-@render_with_tamplate('users.html')
+@render_with_tamplate('users1.html')
 def users(request):
-	user1 = {'login': 'Sid', 'full_name': 'Родион', 'date_birthday': "04-07-1993"}
-	user2 = {'login': 'dark', 'full_name': 'Антон', 'date_birthday': "10-10-1993"}
-	user3 = {'login': 'Enzo', 'full_name': 'Глеб', 'date_birthday': "30-03-1993"}
-	user4 = {'login': 'Storm', 'full_name': 'Сергей', 'date_birthday': "13-05-1992"}
-	user5 = {'login': 'Avenger', 'full_name': 'Павлуша', 'date_birthday': "04-07-1993"}
-	users = (user1, user2, user3, user4, user5)
+	#user1 = {'login': 'Sid', 'full_name': 'Родион', 'date_birthday': "04-07-1993"}
+	#user2 = {'login': 'dark', 'full_name': 'Антон', 'date_birthday': "10-10-1993"}
+	#user3 = {'login': 'Enzo', 'full_name': 'Глеб', 'date_birthday': "30-03-1993"}
+	#user4 = {'login': 'Storm', 'full_name': 'Сергей', 'date_birthday': "13-05-1992"}
+	#user5 = {'login': 'Avenger', 'full_name': 'Павлуша', 'date_birthday': "04-07-1993"}
+	#users = (user1, user2, user3, user4, user5)
 
-	return {'users': users}
+	#return {'users': users}
+
+	return HttpResponse("")
 
 def users_fill(request):
 	user1 = User(login = "Sid", full_name = "Родион", date_birthday = "1993-07-04")

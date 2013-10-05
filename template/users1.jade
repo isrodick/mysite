@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %} List of users {% endblock %}
+
+{% block content %}
+button(id = "button") Show table
+
+script(type = "text/javascript")
+	function show()
+	{
+		var table = "<table border=3><caption>Data of users</caption>"
+		table += "<tr><td></td><th>Full name</th><th>Date birthday</th></tr>"
+		table += "<tr><td>Sid</td><td>Родион</td><td>04-07-1993</td></tr>"
+		table += "<tr><td>dark</td><td>Антон</td><td>10-10-1993</td></tr>"
+		table += "<tr><td>Enzo</td><td>Глеб</td><td>30-03-1993</td></tr>"
+		table += "<tr><td>Storm</td><td>Сергей</td><td>13-05-1992</td></tr>"
+		table += "<tr><td>Avenger</td><td>Павлуша</td><td>04-07-1993</td></tr>"
+		table += "</table>"
+
+		document.write(table)
+	}
+
+	var input = document.getElementById("button")
+
+	input.addEventListener("click", show, false)
+{% endblock %}
