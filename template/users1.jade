@@ -4,20 +4,38 @@
 
 {% block content %}
 button(id = "button") Show table
+div(id = "div")
 
 script(type = "text/javascript")
 	function show()
 	{
+		var users = []
+		users.push({'id': 1, 'login': 'Sid', 'full_name': 'Родион', 'date_birthday': "04-07-1993"})
+		users.push({'id': 2, 'login': 'dark', 'full_name': 'Антон', 'date_birthday': "10-10-1993"})
+		users.push({'id': 3, 'login': 'Enzo', 'full_name': 'Глеб', 'date_birthday': "30-03-1993"})
+		users.push({'id': 4, 'login': 'Storm', 'full_name': 'Сергей', 'date_birthday': "13-05-1992"})
+		users.push({'id': 5, 'login': 'Avenger', 'full_name': 'Павлуша', 'date_birthday': "04-07-1993"})
+
 		var table = "<table border=3><caption>Data of users</caption>"
-		table += "<tr><td></td><th>Full name</th><th>Date birthday</th></tr>"
-		table += "<tr><td>Sid</td><td>Родион</td><td>04-07-1993</td></tr>"
-		table += "<tr><td>dark</td><td>Антон</td><td>10-10-1993</td></tr>"
-		table += "<tr><td>Enzo</td><td>Глеб</td><td>30-03-1993</td></tr>"
-		table += "<tr><td>Storm</td><td>Сергей</td><td>13-05-1992</td></tr>"
-		table += "<tr><td>Avenger</td><td>Павлуша</td><td>04-07-1993</td></tr>"
+		table += "<tr><th>id</th><th>Login</th><th>Full name</th><th>Date birthday</th></tr>"
+
+		var n = users.length
+		
+		for(var i = 0; i < n; i++)
+		{
+			table += "<tr>"
+			table += ("<td>" + users[i]['id'] + "</td>")
+			table += ("<td>" + users[i]['login'] + "</td>")
+			table += ("<td>" + users[i]['full_name'] + "</td>")
+			table += ("<td>" + users[i]['date_birthday'] + "</td>")
+			table += "</tr>"
+		}
+
 		table += "</table>"
 
-		document.write(table)
+		var element = document.getElementById("div")
+
+		element.innerHTML = table
 	}
 
 	var input = document.getElementById("button")
